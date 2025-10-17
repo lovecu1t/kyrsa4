@@ -6,11 +6,8 @@ from components.call_form import open_call_form
 from components.query_tab import fill_query_tab
 
 
-# ======================================================
-#                 ВКЛАДКА "ПАЦІЄНТИ"
-# ======================================================
 def fill_patients_tab(frame):
-    """Заповнення вкладки 'Пацієнти'."""
+    """Заповнення вкладки 'Пацієнти'"""
 
     tree = ttk.Treeview(
         frame,
@@ -71,7 +68,7 @@ def fill_patients_tab(frame):
             conn.close()
             refresh_tree()
 
-    # --- Кнопки ---
+    # кнопки
     btn_frame = ttk.Frame(frame)
     btn_frame.pack(pady=5)
 
@@ -81,12 +78,8 @@ def fill_patients_tab(frame):
 
     refresh_tree()
 
-
-# ======================================================
-#                   ВКЛАДКА "ВИКЛИКИ"
-# ======================================================
 def fill_calls_tab(frame):
-    """Заповнення вкладки 'Виклики'."""
+    """Заповнення вкладки 'Виклики'"""
 
     tree = ttk.Treeview(
         frame,
@@ -101,7 +94,7 @@ def fill_calls_tab(frame):
     tree.pack(expand=True, fill="both", padx=10, pady=10)
 
     def refresh_tree():
-        """Оновлює список викликів."""
+        """Оновлює список викликів"""
         tree.delete(*tree.get_children())
         conn = db.get_connection()
         cur = conn.cursor()
@@ -150,7 +143,7 @@ def fill_calls_tab(frame):
             conn.close()
             refresh_tree()
 
-    # --- Кнопки ---
+    # кнопки
     btn_frame = ttk.Frame(frame)
     btn_frame.pack(pady=5)
 
@@ -161,23 +154,20 @@ def fill_calls_tab(frame):
     refresh_tree()
 
 
-# ======================================================
-#                 ГОЛОВНЕ ВІКНО ПРОГРАМИ
-# ======================================================
 def show_main_window(user):
-    """Створює головне вікно додатка після авторизації."""
+    """Головне вікно додатка після авторизації"""
     root = tk.Tk()
     root.title("Головне меню")
     root.geometry("800x600")
 
-    # --- Верхня панель ---
+    # верхня панель
     top_frame = ttk.Frame(root)
     top_frame.pack(side="top", fill="x", pady=5)
 
     ttk.Label(top_frame, text="Вітаємо!", font=("Arial", 12)).pack(side="left", padx=10)
     ttk.Button(top_frame, text="Вийти", command=root.destroy).pack(side="right", padx=10)
 
-    # --- Вкладки ---
+    # вкладки
     notebook = ttk.Notebook(root)
 
     patients_frame = ttk.Frame(notebook)
