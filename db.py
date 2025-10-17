@@ -2,7 +2,7 @@ import psycopg2
 
 
 def get_connection():
-    """Повертає підключення до бази даних PostgreSQL."""
+    """Повертає підключення до бази даних PostgreSQL"""
     return psycopg2.connect(
         host="localhost",
         port=5432,
