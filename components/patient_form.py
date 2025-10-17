@@ -6,16 +6,16 @@ import db
 def open_patient_form(parent, refresh_callback, patient=None):
     """
     Вікно додавання або редагування пацієнта.
-    :param parent: батьківський фрейм
-    :param refresh_callback: функція для оновлення таблиці після змін
-    :param patient: словник з даними пацієнта (для редагування)
+    param parent: батьківський фрейм
+    param refresh_callback: функція для оновлення таблиці після змін
+    param patient: словник з даними пацієнта (для редагування)
     """
     window = tk.Toplevel(parent)
     window.title("Редагування пацієнта" if patient else "Новий пацієнт")
     window.geometry("350x300")
     window.resizable(False, False)
 
-    # Поля введення
+    # поля введення
     tk.Label(window, text="Ім'я:").pack(pady=5)
     entry_name = ttk.Entry(window)
     entry_name.pack(fill="x", padx=20)
@@ -36,7 +36,6 @@ def open_patient_form(parent, refresh_callback, patient=None):
     entry_address = ttk.Entry(window)
     entry_address.pack(fill="x", padx=20)
 
-    # Якщо редагуємо — підставляємо значення
     if patient:
         entry_name.insert(0, patient["name"])
         entry_surname.insert(0, patient["surname"])
