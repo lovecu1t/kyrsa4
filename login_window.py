@@ -8,7 +8,7 @@ def show_login_window():
     """Вікно авторизації диспетчера"""
 
     def try_login():
-        """Перевіряє логін і пароль користувача."""
+        """Перевіряє логін і пароль користувача"""
         login = entry_login.get().strip()
         password = entry_password.get().strip()
 
